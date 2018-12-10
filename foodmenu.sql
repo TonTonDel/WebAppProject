@@ -1,0 +1,73 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 10, 2018 at 10:24 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `foodmenu`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL,
+  `fName` varchar(255) NOT NULL,
+  `info` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`id`, `fName`, `info`, `price`) VALUES
+(1, 'Soy Nuts', 'Soy nuts are made from soybeans soaked in water, drained, and then baked or roasted. They can be used in place of nuts and are high in protein and dietary fiber.', '1'),
+(2, 'Almonds', 'The almond is a species of tree native to Mediterranean climate regions of the Middle East, from Syria and Turkey to India and Pakistan.', '75c'),
+(3, 'Soy Nuts', 'Soy nuts are made from soybeans soaked in water, drained, and then baked or roasted. They can be used in place of nuts and are high in protein and dietary fiber.', '60c'),
+(4, 'Cashews', 'The cashew tree is a tropical evergreen tree that produces the cashew seed (nut) and the cashew apple. It can grow as high as 14 m (46 ft), but the dwarf cashew, growing up to 6 m (20 ft), has proved more profitable, with earlier maturity and higher yield', '50c'),
+(5, 'Chest Nuts', 'The chestnuts are a group of eight or nine species of deciduous trees and shrubs in the genus Castanea, in the beech family Fagaceae. They are native to temperate regions of the Northern Hemisphere.', '45C'),
+(6, 'Blueberries', 'Are harvested from our local farmlands to ensure the freshest quality is maintained', '95c'),
+(7, 'Dried Bananas', 'Are harvested and are imported from brazil and are dried and packaged the next day to ensure maximum freshness', '85c'),
+(8, 'Dried Diced Apples', 'Are carefully selected from our orchards in Dalkey, where they are dried and diced for maximum taste', '1.10c'),
+(9, 'Dried Strawberries', 'Are manually picked up and examined by our workers, who make sure they are of finest quality', '1.50c');
+
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
