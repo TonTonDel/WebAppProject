@@ -1,5 +1,6 @@
 <?php 
 //index.php
+include 'config.php';
 $connect = mysqli_connect("localhost", "root", "", "foodmenu");
 $query = "SELECT * FROM menu";
 $result = mysqli_query($connect, $query);
@@ -39,11 +40,11 @@ $result = mysqli_query($connect, $query);
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="indexR.php" class="fas fa-home"><p>Home</p></a></li>
-		<li><a href="menu.php" class="fas fa-mobile-alt"><p>Menu</p></a></li>
-		<li><a href="#" class="fas fa-lightbulb"><p>Create</p></a></li>
-        <li><a href="#" class="fas fa-shopping-cart"><p>Shop</p></a></li>
-		<li><a href="#" class="fas fa-mobile-alt"><p>Contact</p></a></li>
-        
+        <li><a href="menu.php" class="fas fa-mobile-alt"><p>Menu</p></a></li>
+        <li><a href="createFood.php" class="fas fa-lightbulb"><p>Create</p></a></li>
+        <li><a href="updateFood.php" class="fas fa-lightbulb"><p>Update</p></a></li>
+        <li><a href="deleteFood.php" class="fas fa-lightbulb"><p>Delete</p></a></li>
+        <li><a href="location.php" class="fas fa-globe-americas"><p>Map</p></a></li>
       </ul>
     </div>
   </div>
@@ -95,32 +96,21 @@ $result = mysqli_query($connect, $query);
     
     </div>
     <div class="col-sm-4">
-	 <?php
-    if(isset($_POST['submit'])){
-        $sql = "INSERT INTO menu (fName, info, price)
-        VALUES ('".$_POST["fName"]."','".$_POST["info"]."','".$_POST["price"]."')";
-		
-		$stmt = mysqli_prepare($sql);
-		$stmt->bind_param("sss", $_POST['fName'], $_POST['info'], $_POST['price']);
-		
-		$stmt->execute();
-    }
-
-    ?>
-	<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+	
+	<form action="insert.php" target="_blank" method="post">
     
    
-    <input type="text" placeholder="Food Name/Type" id="fName" " />
+    <input type="text" placeholder="Food Name/Type" name="fName" id="fName" " />
 	<br>
 	<br>
 	
 	
 
-	<input type="text" placeholder="Description" id="info" " />
+	<input type="text" placeholder="Description" name="info" id="info" " />
 	<br>
 	<br>
 	
-	<input type="number" placeholder="Food Price" id="price" "  />
+	<input type="number" placeholder="Food Price" name="price" id="price" "  />
 	<br>
 	<br>
 
@@ -173,6 +163,8 @@ $(document).ready(function(){
   }
  });
 });
+
+
 
 
 </script>

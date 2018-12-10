@@ -1,8 +1,11 @@
 <?php 
 //index.php
+include 'config.php';
 $connect = mysqli_connect("localhost", "root", "", "foodmenu");
 $query = "SELECT * FROM menu";
 $result = mysqli_query($connect, $query);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +26,9 @@ $result = mysqli_query($connect, $query);
 </head>
 <body>
 
+
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid" id="ton">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -55,7 +59,7 @@ $result = mysqli_query($connect, $query);
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner" role="listbox" id="menuCarousel">
       <div class="item active">
         <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
         <div class="carousel-caption">
@@ -83,26 +87,90 @@ $result = mysqli_query($connect, $query);
 </div>
   
 <div class="container text-center">    
-  <h3>What We Do</h3><br>
-  <div class="row">
+ 
+  <div class="container-fluid" style="width:900px;">
+   <h2 align="center">Update a Food</h2>
+   <h3 align="center">Enter the details below of the food you wish to be updated. You can check the information of each food currently stored by using the drop down menu</h3><br />   
+   <div class="row">
+	
     <div class="col-sm-4">
-      <img src="muesli1.jpg"  class="img-responsive" style="width:100%" alt="Image">
-      <p>Current Project</p>
-	 
+    
+    </div>
+    <div class="col-sm-4">
+	
+	<form action="update.php" target="_blank" method="post">
+    
+   
+    <input type="text" placeholder="ID of food to update" name="id" id="id" " />
+	<br>
+	<br>
+
+    <input type="text" placeholder="New food name/type" name="fName" id="fName" " />
+	<br>
+	<br>
+	
+	
+
+	<input type="text" placeholder="New description" name="info" id="info" " />
+	<br>
+	<br>
+	
+	<input type="number" placeholder="New food price" name="price" id="price" "  />
+	<br>
+	<br>
+
+   <p>
+      <input type="submit" class="btn btn-warning onclick" name="update" value="Update Data" />
+   </p>
+
+   <select name="menu_list" id="menu_list" class="form-control">
+      <option value="">Select Food</option>
+      <?php 
+      while($row = mysqli_fetch_array($result))
+      {
+       echo '<option value="'.$row["id"].'">'.$row["fName"].'</option>';
+       
+      }
+      ?>
+     </select>
+	 <br>
+     <button type="button" name="search" id="search" class="btn btn-warning">Get</button>
+    </div>
+   </div>
+   <br />
+   <div class="table-responsive" id="menu_details" style="display:none">
+   <table class="table table-bordered">
+    <tr>
+     <td width="10%" align="right"><b>ID/Number</b></td>
+     <td width="90%"><span id="menu_id"></span></td>
+    </tr>
+    <tr>
+     <td width="10%" align="right"><b>Name</b></td>
+     <td width="90%"><span id="menu_name"></span></td>
+    </tr>
+    <tr>
+     <td width="10%" align="right"><b>Info</b></td>
+     <td width="90%"><span id="menu_info"></span></td>
+    </tr>
+
+    <tr>
+     <td width="10%" align="right"><b>Price</b></td>
+     <td width="90%"><span id="menu_price"></span></td>
+    </tr>
+    
+   </table>
+   </div>
+   
+   
+
+  
+
+	
+   <div class="col-sm-4">
    
   </div>
     </div>
-    <div class="col-sm-4"> 
-      <img src="muesli2.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
-    </div>
-    <div class="col-sm-4">
-      <div class="well">
-       <p>Some text..</p>
-      </div>
-      <div class="well">
-       <p>Some text..</p>
-      </div>
+    
     </div>
   </div>
 </div><br>
@@ -127,6 +195,7 @@ $(document).ready(function(){
     success:function(data)
     {
      $('#menu_details').css("display", "block");
+     $('#menu_id').text(data.id);
      $('#menu_name').text(data.fName);
      $('#menu_info').text(data.info);
      $('#menu_price').text(data.price);
@@ -141,4 +210,8 @@ $(document).ready(function(){
   }
  });
 });
+
+
+
+
 </script>

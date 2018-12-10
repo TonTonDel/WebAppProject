@@ -36,10 +36,11 @@ $result = mysqli_query($connect, $query);
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="indexR.php" class="fas fa-home"><p>Home</p></a></li>
-		<li><a href="menu.php" class="fas fa-mobile-alt"><p>Menu</p></a></li>
-		<li><a href="createFood.php" class="fas fa-lightbulb"><p>Create</p></a></li>
-        <li><a href="#" class="fas fa-shopping-cart"><p>Shop</p></a></li>
-		<li><a href="#" class="fas fa-mobile-alt"><p>Contact</p></a></li>
+        <li><a href="menu.php" class="fas fa-mobile-alt"><p>Menu</p></a></li>
+        <li><a href="createFood.php" class="fas fa-lightbulb"><p>Create</p></a></li>
+        <li><a href="updateFood.php" class="fas fa-lightbulb"><p>Update</p></a></li>
+        <li><a href="deleteFood.php" class="fas fa-lightbulb"><p>Delete</p></a></li>
+        <li><a href="location.php" class="fas fa-globe-americas"><p>Map</p></a></li>
         
       </ul>
     </div>
@@ -110,6 +111,10 @@ $result = mysqli_query($connect, $query);
    <div class="table-responsive" id="menu_details" style="display:none">
    <table class="table table-bordered">
     <tr>
+     <td width="10%" align="right"><b>ID/Number</b></td>
+     <td width="90%"><span id="menu_id"></span></td>
+    </tr>
+    <tr>
      <td width="10%" align="right"><b>Name</b></td>
      <td width="90%"><span id="menu_name"></span></td>
     </tr>
@@ -154,6 +159,7 @@ $(document).ready(function(){
     success:function(data)
     {
      $('#menu_details').css("display", "block");
+     $('#menu_id').text(data.id);
      $('#menu_name').text(data.fName);
      $('#menu_info').text(data.info);
      $('#menu_price').text(data.price);
