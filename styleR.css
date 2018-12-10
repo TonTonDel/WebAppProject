@@ -1,0 +1,83 @@
+
+	.navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+	  text-align:center;
+	  font-size:20px;
+	  padding-top:1%;
+	  
+    }
+		
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+	  
+    }
+    
+	.carousel-inner img {
+      width: 100%; 
+      margin: auto;
+      height:300px;
+	}
+	.carousel-inner{
+      width: 100%; 
+      margin: auto;
+      height:100%;
+	}
+
+	@media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+		}
+	}
+	#menuCarousel{
+	  width: 50%; 
+      margin: auto;
+      height:300px
+	
+	
+	}
+	#menuCarousel img{
+	  width: 100%; 
+      margin: auto;
+      height:100%
+	
+	
+	}
+	.btn btn-warning
+	{
+		text-decoration:underline;
+	}
+	
+	@media screen and (max-width: 600px){
+		
+		
+	li a{
+		padding:0;
+		width:100%;
+		float:none;
+		}
+	}
+ 
+	nav p{
+		font-size: 18px;
+		font-family: 'Indie Flower', cursive;
+		padding-top:15%;
+	}
+	
+	footer p{
+		font-size:45px;
+	}
+	
+	nav h1{
+		font-size:50px;
+		color:orange;
+		font-family: 'Indie Flower', cursive;
+		margin:0;
+		padding:0;
+	}
+	
+	
+	
+
+
